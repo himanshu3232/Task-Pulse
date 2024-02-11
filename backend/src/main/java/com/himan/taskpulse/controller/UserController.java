@@ -13,10 +13,7 @@ public class UserController {
 
     //service Bean
     @Autowired
-    private final HandleUser handleUser;
-    public UserController(HandleUser handleUser) {
-        this.handleUser = handleUser;
-    }
+    private HandleUser handleUser;
 
     @PostMapping("/register")
     public ResponseEntity<Boolean> addUser(@RequestBody User user){
