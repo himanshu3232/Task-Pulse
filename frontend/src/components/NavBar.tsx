@@ -3,7 +3,7 @@ import Header from "./Header";
 
 export default function NavBar() {
   return (
-    <div style={{ display: "flex", marginBottom: "3rem" }}>
+    <div style={{ display: "flex", marginBottom: "1rem" }}>
       <div style={{ marginRight: "auto" }}>
         <Link className="links" to="/">
           <Header title="Task Pulse" size={6} />

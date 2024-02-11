@@ -18,7 +18,7 @@ export default function MiddleBody() {
   return (
     <div className="middle-body">
       {facts.map((fact, index) => (
-        <Card id={index} header={fact.header} body={fact.body} />
+        <Card id={index} header={fact.header} body={fact.body} key={index} />
       ))}
     </div>
   );
