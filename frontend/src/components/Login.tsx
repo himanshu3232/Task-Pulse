@@ -1,11 +1,15 @@
-import HandleUser from "./HandleUser";
+import HandleUser from "./api/HandleUser";
 import Header from "./Header";
 
-export default function Login() {
+interface ILogin{
+  status ?: boolean;
+}
+
+export default function Login({status} : ILogin) {
   return (
     <div>
       <Header title="Login to Task Pulse" size={2} />
-      <HandleUser api={"/login"} method="POST" />
+      <HandleUser api={"/login"} method="POST" requestType="login" />
     </div>
   );
 }

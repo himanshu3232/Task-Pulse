@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class UpdateUser {
     @Autowired
     DBConnection connection;
+
     public boolean updateUser(User user){
         Connection con = connection.getConnection()
                 .orElse(null);

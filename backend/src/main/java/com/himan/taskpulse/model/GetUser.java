@@ -14,6 +14,7 @@ import java.util.Optional;
 public class GetUser {
     @Autowired
     private DBConnection connection;
+
     public Optional<User> getUser(User user){
         Connection con = connection.getConnection()
                 .orElse(null);

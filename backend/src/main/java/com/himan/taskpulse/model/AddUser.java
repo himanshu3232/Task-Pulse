@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class AddUser {
     @Autowired
     private DBConnection connection;
+
     public boolean addUser(User user){
         Connection con = connection.getConnection()
                 .orElse(null);
