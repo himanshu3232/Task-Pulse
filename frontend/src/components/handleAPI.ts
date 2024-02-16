@@ -1,16 +1,15 @@
-
 interface IhandleAPI {
   api: string;
   method: string;
   body: any;
 }
 
-export default async function HandleAPI({
+export default async function handleAPI({
   api,
   method,
   body,
-}: IhandleAPI): Promise<boolean> {
-  const url = `http://localhost:8080/user${api}`;
+}: IhandleAPI) : Promise<boolean> {
+  const url = `http://localhost:8080${api}`;
   try {
     const response = await fetch(url, {
       method: method,
