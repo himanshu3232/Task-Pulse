@@ -9,3 +9,4 @@ public class TaskpulseApplication {
 		SpringApplication.run(TaskpulseApplication.class, args);
 	}
 }
+
