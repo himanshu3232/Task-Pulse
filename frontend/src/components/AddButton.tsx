@@ -22,28 +22,34 @@ export default function AddButton() {
     }
     setVisibility(!visible);
   };
+  const handleSubmit = (e: any) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleClick();
+    }
+  };
   return (
     <div>
       {visible && (
-        <form onSubmit={handleClick}>
-          <div className="container-lg">
-            <div className="input-group">
-              <span className="input-group-text p-1 m-2">Title and Body</span>
-              <input
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                aria-label="First name"
-                className="form-control m-2"
-              />
-              <input
-                onChange={(e) => setBody(e.target.value)}
-                type="text"
-                aria-label="Last name"
-                className="form-control m-2"
-              />
-            </div>
+        <div className="container-lg">
+          <div className="input-group">
+            <span className="input-group-text p-1 m-2">Title and Body</span>
+            <input
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              aria-label="First name"
+              className="form-control m-2"
+              onKeyDown={handleSubmit}
+            />
+            <input
+              onChange={(e) => setBody(e.target.value)}
+              type="text"
+              aria-label="Last name"
+              className="form-control m-2"
+              onKeyDown={handleSubmit}
+            />
           </div>
-        </form>
+        </div>
       )}
       <button
         onClick={handleClick}

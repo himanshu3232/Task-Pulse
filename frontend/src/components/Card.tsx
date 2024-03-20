@@ -23,11 +23,17 @@ export default function Card({ id, title, body }: ICard) {
     };
     dispatch(updateCard(updatedTask));
   }
+  function handleSubmit(e: any) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleEditing();
+    }
+  }
 
   return (
     <>
-      <div className="card container-lg shadow p-3 mb-5 bg-secondary-subtle text-secondary-emphasis bg-body-tertiary rounded">
-        <div className="card-body">
+      <div className="card container-lg shadow p-3 mb-5 text-secondary-emphasis bg-body-tertiary rounded bg-secondary-subtle ">
+        <div className="card-body bg-secondary-subtle ">
           {editing ? (
             <div className="form-floating mb-3">
               <input
@@ -36,6 +42,7 @@ export default function Card({ id, title, body }: ICard) {
                 id="floatingEmptyPlaintextInput"
                 value={updatedTitle}
                 onChange={(e) => setUpdatedTitle(e.target.value)}
+                onKeyDown={handleSubmit}
               />
               <textarea
                 className="form-control card-body"
@@ -43,17 +50,20 @@ export default function Card({ id, title, body }: ICard) {
                 value={updatedBody}
                 onChange={(e) => setUpdatedBody(e.target.value)}
                 style={{ resize: "none" }}
+                onKeyDown={handleSubmit}
               />
             </div>
           ) : (
-            <div onClick={() => setEditing(true)}>
-              <div className="card-header">{title}</div>
+            <div className="card bg-secondary-subtle" onClick={() => setEditing(true)}>
               <div className="card-body">
-                <p>{body}</p>
+                <h5 className="card-title">{title}</h5>
+                <div className="card-text">
+                  <p>{body}</p>
+                </div>
               </div>
             </div>
           )}
-          <div className="d-flex justify-content-center gap-1">
+          <div className="d-flex justify-content-center gap-1 m-2">
             <button
               onClick={() => dispatch(removeCard(id))}
               className="btn btn-danger"
