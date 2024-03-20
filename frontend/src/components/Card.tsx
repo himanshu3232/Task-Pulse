@@ -10,8 +10,8 @@ interface ICard {
 
 export default function Card({ id, title, body }: ICard) {
   const dispatch = useDispatch();
-  const [updatedTitle, setUpdatedTitle] = useState(title);
-  const [updatedBody, setUpdatedBody] = useState(body);
+  const [updatedTitle, setUpdatedTitle] = useState<String | undefined>(title);
+  const [updatedBody, setUpdatedBody] = useState<String | undefined>(body);
   const [editing, setEditing] = useState<Boolean>(false);
 
   function handleEditing() {

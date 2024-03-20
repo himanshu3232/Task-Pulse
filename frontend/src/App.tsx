@@ -8,8 +8,8 @@ export default function App() {
 
   return (
     <div className="container-fluid text-center">
-        <Header content="Task Pulse" size={1} />
-        <AddButton />
+      <Header content="Task Pulse" size={1} />
+      <AddButton />
       <div className="row row-cols-2 p-2 m-1">
         {tasks.map((task: any) => (
           <Card
