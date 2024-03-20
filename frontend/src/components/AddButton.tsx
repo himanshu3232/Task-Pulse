@@ -25,23 +25,25 @@ export default function AddButton() {
   return (
     <div>
       {visible && (
-        <div className="container-lg">
-          <div className="input-group">
-            <span className="input-group-text p-1 m-2">Title and Body</span>
-            <input
-              onChange={(e) => setTitle(e.target.value)}
-              type="text"
-              aria-label="First name"
-              className="form-control m-2"
-            />
-            <input
-              onChange={(e) => setBody(e.target.value)}
-              type="text"
-              aria-label="Last name"
-              className="form-control m-2"
-            />
+        <form onSubmit={handleClick}>
+          <div className="container-lg">
+            <div className="input-group">
+              <span className="input-group-text p-1 m-2">Title and Body</span>
+              <input
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                aria-label="First name"
+                className="form-control m-2"
+              />
+              <input
+                onChange={(e) => setBody(e.target.value)}
+                type="text"
+                aria-label="Last name"
+                className="form-control m-2"
+              />
+            </div>
           </div>
-        </div>
+        </form>
       )}
       <button
         onClick={handleClick}

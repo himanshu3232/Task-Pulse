@@ -14,18 +14,14 @@ export default function Card({ id, title, body }: ICard) {
   const [updatedBody, setUpdatedBody] = useState(body);
   const [editing, setEditing] = useState<Boolean>(false);
 
-  function handleBodyChange(e: any) {
-    setUpdatedBody(e.target.value);
+  function handleEditing() {
+    setEditing(false);
     const updatedTask = {
       id: id,
       title: updatedTitle,
       body: updatedBody,
     };
     dispatch(updateCard(updatedTask));
-  }
-
-  function handleTitleChange(e: any) {
-    setUpdatedTitle(e.target.value);
   }
 
   return (
@@ -39,21 +35,21 @@ export default function Card({ id, title, body }: ICard) {
                 className="form-control-plaintext card-header"
                 id="floatingEmptyPlaintextInput"
                 value={updatedTitle}
-                onChange={handleTitleChange}
+                onChange={(e) => setUpdatedTitle(e.target.value)}
               />
               <textarea
                 className="form-control card-body"
                 id={`card-body-${id}`}
                 value={updatedBody}
-                onChange={handleBodyChange}
+                onChange={(e) => setUpdatedBody(e.target.value)}
                 style={{ resize: "none" }}
               />
             </div>
           ) : (
             <div onClick={() => setEditing(true)}>
-              <div className="card-header">{updatedTitle}</div>
+              <div className="card-header">{title}</div>
               <div className="card-body">
-                <p>{updatedBody}</p>
+                <p>{body}</p>
               </div>
             </div>
           )}
@@ -65,10 +61,7 @@ export default function Card({ id, title, body }: ICard) {
               Remove
             </button>
             {editing && (
-              <button
-                onClick={() => setEditing(false)}
-                className="btn btn-secondary"
-              >
+              <button onClick={handleEditing} className="btn btn-secondary">
                 Save
               </button>
             )}
