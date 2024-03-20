@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 interface ICard {
   id: number;
   title?: string;
-  body: string;
+  body?: string;
 }
 
 export default function Card({ id, title, body }: ICard) {
