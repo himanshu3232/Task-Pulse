@@ -12,7 +12,7 @@ export default function AddButton() {
   const handleClick = () => {
     if (visible && (title.length > 0 || body.length > 0)) {
       const newTask = {
-        id: tasks[tasks.length - 1].id + 1,
+        id: tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1,
         title: title,
         body: body,
       };
