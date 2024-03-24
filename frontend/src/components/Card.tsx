@@ -2,11 +2,16 @@ import { useState } from "react";
 import { removeCard, updateCard } from "../redux/cardContentsSlice";
 import { useDispatch } from "react-redux";
 
-export default function Card({ id, title, body }) {
+interface ICard {
+  id: number;
+  title: string;
+  body: string;
+}
+export default function Card({ id, title, body }: ICard) {
   const dispatch = useDispatch();
-  const [updatedTitle, setUpdatedTitle] = useState(title);
-  const [updatedBody, setUpdatedBody] = useState(body);
-  const [editing, setEditing] = useState(false);
+  const [updatedTitle, setUpdatedTitle] = useState<String>(title);
+  const [updatedBody, setUpdatedBody] = useState<String>(body);
+  const [editing, setEditing] = useState<Boolean>(false);
 
   function handleEditing() {
     setEditing(false);
@@ -17,7 +22,7 @@ export default function Card({ id, title, body }) {
     };
     dispatch(updateCard(updatedTask));
   }
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     if (e.key === "Enter") {
       e.preventDefault();
       handleEditing();

@@ -4,10 +4,10 @@ import { addCard } from "../redux/cardContentsSlice";
 
 export default function AddButton() {
   const dispatch = useDispatch();
-  const [visible, setVisibility] = useState(false);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const tasks = useSelector((store) => store.cardContent.cards);
+  const [visible, setVisibility] = useState<Boolean>(false);
+  const [title, setTitle] = useState<String>("");
+  const [body, setBody] = useState<String>("");
+  const tasks = useSelector((store: any) => store.cardContent.cards);
 
   const handleClick = () => {
     if (visible && (title.length > 0 || body.length > 0)) {
@@ -22,7 +22,7 @@ export default function AddButton() {
     }
     setVisibility(!visible);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     if (e.key === "Enter") {
       e.preventDefault();
       handleClick();
