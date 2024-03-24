@@ -26,12 +26,4 @@ dist-ssr
 #node_modules
 /node_modules/
 
-#config
-.eslintrc.cjs
-package.json
-package-lock.json
-README.md
-tsconfig.json
-tsconfig.node.json
-vite.config.ts
-vite-env.d.ts
+

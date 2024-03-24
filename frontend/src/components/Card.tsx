@@ -2,7 +2,7 @@ import { useState } from "react";
 import { removeCard, updateCard } from "../redux/cardContentsSlice";
 import { useDispatch } from "react-redux";
 
-interface ICard {
+export interface ICard {
   id: number;
   title?: string;
   body?: string;
@@ -10,8 +10,8 @@ interface ICard {
 
 export default function Card({ id, title, body }: ICard) {
   const dispatch = useDispatch();
-  const [updatedTitle, setUpdatedTitle] = useState<String | undefined>(title);
-  const [updatedBody, setUpdatedBody] = useState<String | undefined>(body);
+  const [updatedTitle, setUpdatedTitle] = useState(title);
+  const [updatedBody, setUpdatedBody] = useState(body);
   const [editing, setEditing] = useState<Boolean>(false);
 
   function handleEditing() {
@@ -81,3 +81,4 @@ export default function Card({ id, title, body }: ICard) {
     </>
   );
 }
+

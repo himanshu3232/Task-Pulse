@@ -8,7 +8,6 @@ export default function AddButton() {
   const [title, setTitle] = useState<String>("");
   const [body, setBody] = useState<String>("");
   const tasks = useSelector((store: any) => store.cardContent.cards);
-  const [id, setId] = useState<Number>(tasks[tasks.length - 1]);
 
   const handleClick = () => {
     if (visible && (title.length > 0 || body.length > 0)) {
