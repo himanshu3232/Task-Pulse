@@ -11,14 +11,17 @@ export default function App() {
       <Header content="Task Pulse" size={1} />
       <AddButton />
       <div className="row row-cols-2 p-2 m-1">
-        {tasks.map((task: any) => (
-          <Card
-            key={task.id}
-            id={task.id}
-            title={task.title}
-            body={task.body}
-          />
-        ))}
+        {tasks.map(
+          (task: any, index: number) =>
+            index !== 0 && (
+              <Card
+                key={task.id}
+                id={task.id}
+                title={task.title}
+                body={task.body}
+              />
+            )
+        )}
       </div>
     </div>
   );
